@@ -4,12 +4,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SoapwsApplication
+public class SoapWsApplication
 {
-
     public static void main(String[] args)
     {
-        SpringApplication.run(SoapwsApplication.class, args);
+        SpringApplication.run(SoapWsApplication.class, args);
     }
 
 }
