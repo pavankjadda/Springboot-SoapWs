@@ -23,7 +23,7 @@ public class WebServiceConfig extends WsConfigurerAdapter
         MessageDispatcherServlet servlet = new MessageDispatcherServlet();
         servlet.setApplicationContext(applicationContext);
         servlet.setTransformWsdlLocations(true);
-        return new ServletRegistrationBean(servlet, "/ws/soap/*");
+        return new ServletRegistrationBean(servlet, "/ws/*");
     }
 
 
@@ -32,7 +32,7 @@ public class WebServiceConfig extends WsConfigurerAdapter
     {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
         wsdl11Definition.setPortTypeName("BookPort");
-        wsdl11Definition.setLocationUri("/ws");
+        wsdl11Definition.setLocationUri("/ws/soap/book");
         wsdl11Definition.setTargetNamespace(ApiConstants.NAMESPACE_URI);
         wsdl11Definition.setSchema(caseSchema);
         return wsdl11Definition;
