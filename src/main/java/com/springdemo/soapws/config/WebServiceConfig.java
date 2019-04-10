@@ -26,28 +26,12 @@ public class WebServiceConfig extends WsConfigurerAdapter
         return new ServletRegistrationBean(servlet, "/ws/*");
     }
 
-    @Bean(name = "applicant")
-    public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema applicantSchema)
+
+    @Bean(name = "book")
+    public DefaultWsdl11Definition defaultWsdl11DefinitionForBook(XsdSchema caseSchema)
     {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
-        wsdl11Definition.setPortTypeName("ApplicantPort");
-        wsdl11Definition.setLocationUri("/ws");
-        wsdl11Definition.setTargetNamespace(ApiConstants.NAMESPACE_URI);
-        wsdl11Definition.setSchema(applicantSchema);
-        return wsdl11Definition;
-    }
-
-    @Bean
-    public XsdSchema applicantSchema()
-    {
-        return new SimpleXsdSchema(new ClassPathResource("applicant.xsd"));
-    }
-
-    @Bean(name = "case")
-    public DefaultWsdl11Definition defaultWsdl11DefinitionForCase(XsdSchema caseSchema)
-    {
-        DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
-        wsdl11Definition.setPortTypeName("CasePort");
+        wsdl11Definition.setPortTypeName("BookPort");
         wsdl11Definition.setLocationUri("/ws");
         wsdl11Definition.setTargetNamespace(ApiConstants.NAMESPACE_URI);
         wsdl11Definition.setSchema(caseSchema);
@@ -57,6 +41,24 @@ public class WebServiceConfig extends WsConfigurerAdapter
     @Bean
     public XsdSchema caseSchema()
     {
-        return new SimpleXsdSchema(new ClassPathResource("case.xsd"));
+        return new SimpleXsdSchema(new ClassPathResource("book.xsd"));
+    }
+
+
+    @Bean(name = "author")
+    public DefaultWsdl11Definition defaultWsdl11DefinitionForAuthor(XsdSchema authorSchema)
+    {
+        DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
+        wsdl11Definition.setPortTypeName("AuthorPort");
+        wsdl11Definition.setLocationUri("/ws");
+        wsdl11Definition.setTargetNamespace(ApiConstants.NAMESPACE_URI);
+        wsdl11Definition.setSchema(authorSchema);
+        return wsdl11Definition;
+    }
+
+    @Bean
+    public XsdSchema authorSchema()
+    {
+        return new SimpleXsdSchema(new ClassPathResource("author.xsd"));
     }
 }

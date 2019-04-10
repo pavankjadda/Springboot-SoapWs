@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.springdemo.com/soapws/gen/"
+           targetNamespace="http://www.springdemo.com/soapws/gen/" elementFormDefault="qualified">
+
+    <xs:element name="getBookRequest">        
+        <xs:complexType>            
+            <xs:sequence>               
+                <xs:element name="id" type="xs:long"/>         
+            </xs:sequence>
+                    
+        </xs:complexType>
+           
+    </xs:element>
+     
+    <xs:element name="getBookResponse">
+        <xs:complexType>        
+            <xs:sequence>          
+                <xs:element name="book" type="tns:book"/>            
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+     
+    <xs:complexType name="book">        
+        <xs:sequence>           
+            <xs:element name="id" type="xs:long"/>           
+            <xs:element name="title" type="xs:string"/>          
+            <xs:element name="numberOfPages" type="xs:int"/>
+            <xs:element name="cost" type="xs:double"/>
+            <xs:element name="author" type="tns:author"/>        
+        </xs:sequence>
+           
+    </xs:complexType>
+     
+    <xs:complexType name="author">
+        <xs:element name="id" type="xs:long"/>
+        <xs:element name="firstName" type="xs:string"/>
+        <xs:element name="lastName" type="xs:string"/>
+        <xs:element name="email" type="xs:string"/>
+        <xs:element name="phone" type="xs:string"/>    
+    </xs:complexType>
+</xs:schema>
