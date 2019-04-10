@@ -3,6 +3,8 @@ package com.springdemo.soapws.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "book")
@@ -23,6 +25,6 @@ public class Book
     private Double cost;
 
     @OneToMany
-    private Author author;
+    private List<Author> author = new ArrayList<>();
 
 }

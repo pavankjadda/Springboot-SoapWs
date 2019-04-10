@@ -44,21 +44,4 @@ public class WebServiceConfig extends WsConfigurerAdapter
         return new SimpleXsdSchema(new ClassPathResource("book.xsd"));
     }
 
-
-    @Bean(name = "author")
-    public DefaultWsdl11Definition defaultWsdl11DefinitionForAuthor(XsdSchema authorSchema)
-    {
-        DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
-        wsdl11Definition.setPortTypeName("AuthorPort");
-        wsdl11Definition.setLocationUri("/ws");
-        wsdl11Definition.setTargetNamespace(ApiConstants.NAMESPACE_URI);
-        wsdl11Definition.setSchema(authorSchema);
-        return wsdl11Definition;
-    }
-
-    @Bean
-    public XsdSchema authorSchema()
-    {
-        return new SimpleXsdSchema(new ClassPathResource("author.xsd"));
-    }
 }
