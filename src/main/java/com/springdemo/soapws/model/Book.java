@@ -24,7 +24,7 @@ public class Book
     @Column(name = "cost")
     private Double cost;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Author> author = new ArrayList<>();
 
 }

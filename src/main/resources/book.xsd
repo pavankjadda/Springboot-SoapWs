@@ -22,7 +22,7 @@
             <xs:element name="title" type="xs:string"/>
             <xs:element name="numberOfPages" type="xs:string"/>
             <xs:element name="cost" type="xs:string"/>
-            <xs:element name="author" maxOccurs="unbounded" type="tns:author"/>
+            <xs:element name="author" minOccurs="1" maxOccurs="unbounded" type="tns:author"/>
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="author">

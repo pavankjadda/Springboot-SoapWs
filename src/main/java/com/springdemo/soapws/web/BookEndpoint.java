@@ -38,7 +38,7 @@ public class BookEndpoint
             Book book = bookOptional.get();
             bookResponse.setBook(transformBookObject(book));
         }
-        return null;
+        return bookResponse;
     }
 
     private com.springdemo.soapws.gen.Book transformBookObject(Book book)
